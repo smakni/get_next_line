@@ -6,37 +6,27 @@
 /*   By: smakni <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/25 15:25:47 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/25 16:33:33 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_len_line(char **line)
-{
-	int i;
-
-	while (line[i] != '\n')
-		i++;
-	return (i);
-}
-
-
 int		get_next_line(const int fd, char **line)
 {
 	int		ret;
-	int		len_line;
-	char	buffer[BUFF_SIZE];
-	char	*buff_line;
+	char	*buffer;
+	char	tmp;
 	
-	len_line = ft_len_line(&line);
-	buff_line = ft_memalloc(len_line);
-	while (buff_line[len_line] != '\n')
+	while ((ret = read(fd, buffer, BUFF_SIZE)) > 0)
 	{
-		ret = read(fd, buffer, BUFF_SIZE);
-		ft_strcat(buff_line, buffer);
-	}	
-	printf("%s", buff_line);
+		buffer[BUFF_SIZE + 1] = '\0';
+		tmp = ft_strjoin(tmp, buffer);
+		if (ft_memchr(buffer, '\n', BUFF_SIZE) != 0)
+			break ;
+	}
+	//ft_memcpy(line, tmp, ft_strlen((const char *)tmp));
+	printf("line = %s", tmp);
 	return (0);
 
 }
@@ -49,7 +39,7 @@ int		main(int ac, char **av)
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY);
-		get_next_line(fd, line);
+		get_next_line(fd, &line);
 	}
 	else
 		printf("ERROR");
