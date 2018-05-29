@@ -6,7 +6,7 @@
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:16 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/29 17:34:20 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/29 18:22:30 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-#define BUFF_SIZE 1
+#define BUFF_SIZE 2
 
 #endif

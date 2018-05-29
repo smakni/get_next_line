@@ -6,19 +6,11 @@
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/29 17:34:53 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/29 18:22:05 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	ft_free(char *tmp, char *buffer)
-{
-	free(tmp);
-	tmp = NULL;
-	free(buffer);
-	buffer = NULL;
-}
 
 int		len_line(char *str)
 {
@@ -33,12 +25,11 @@ int		len_line(char *str)
 int		get_next_line(const int fd, char **line)
 {
 	int				ret;
-	char			*buffer;
+	char			buffer[BUFF_SIZE + 1];
 	static char		*tmp;
 
 	if (!tmp)
 		tmp = ft_memalloc(1);
-	buffer = ft_memalloc(BUFF_SIZE);
 	while ((ret = read(fd, buffer, BUFF_SIZE)))
 	{
 		buffer[ret] = '\0';
@@ -47,7 +38,8 @@ int		get_next_line(const int fd, char **line)
 			break ;
 	}
 	*line = ft_strtrim(ft_strdup((const char *)tmp));
-	ft_free(tmp, buffer);
+	free(tmp);
+	tmp = NULL;
 	if (ft_memchr(buffer, '\n', BUFF_SIZE) != 0)
 		return (1);
 	if (ret == 0)
