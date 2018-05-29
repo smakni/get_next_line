@@ -6,11 +6,29 @@
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/29 16:24:09 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/29 17:34:53 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	ft_free(char *tmp, char *buffer)
+{
+	free(tmp);
+	tmp = NULL;
+	free(buffer);
+	buffer = NULL;
+}
+
+int		len_line(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\n')
+		i++;
+	return (i);
+}
 
 int		get_next_line(const int fd, char **line)
 {
@@ -28,10 +46,8 @@ int		get_next_line(const int fd, char **line)
 		if (ft_memchr(buffer, '\n', BUFF_SIZE) != 0)
 			break ;
 	}
-	*line = ft_strdup((const char *)tmp);
-	//printf("tmp = %s\n", tmp);
-	free(tmp);
-	free(buffer);
+	*line = ft_strtrim(ft_strdup((const char *)tmp));
+	ft_free(tmp, buffer);
 	if (ft_memchr(buffer, '\n', BUFF_SIZE) != 0)
 		return (1);
 	if (ret == 0)
