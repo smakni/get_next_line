@@ -6,7 +6,7 @@
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/29 18:22:05 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/29 18:29:48 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ int		get_next_line(const int fd, char **line)
 			break ;
 	}
 	*line = ft_strtrim(ft_strdup((const char *)tmp));
-	free(tmp);
-	tmp = NULL;
+	ft_strdel(&tmp);
 	if (ft_memchr(buffer, '\n', BUFF_SIZE) != 0)
 		return (1);
 	if (ret == 0)
