@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smakni <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:16 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/25 16:21:50 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/29 15:49:12 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-#define BUFF_SIZE 5
+#define BUFF_SIZE 1
 
 #endif
