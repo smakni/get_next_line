@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_last.c                                   :+:      :+:    :+:   */
+/*   ft_llast.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 14:48:22 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/25 13:00:26 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/29 14:11:03 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstadd_last(t_list *lst, void *content, size_t content_size)
+t_list	*ft_llast(t_list *lst, void *content, size_t content_size)
 {
 	t_list	*element;
 	t_list	*tmp;

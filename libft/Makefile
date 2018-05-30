@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sabri <sabri@student.42.fr>                +#+  +:+       +#+         #
+#    By: smakni <smakni@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 10:28:08 by smakni            #+#    #+#              #
-#    Updated: 2018/05/25 12:55:19 by smakni           ###   ########.fr        #
+#    Updated: 2018/05/29 14:10:27 by smakni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS	=	ft_putchar.c ft_putstr.c ft_putnbr.c ft_strlen.c ft_strdup.c     \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c    \
 			ft_itoa.c ft_power.c ft_lstnew.c ft_lstdelone.c	ft_lstdel.c 	 \
 			ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_lstmove_last.c 			 \
-			ft_lstadd_last.c ft_strtoupper.c ft_atoi.c ft_strlcat.c			 \
+			ft_llast.c ft_strtoupper.c ft_atoi.c ft_strlcat.c			 	 \
 			ft_strtolower.c ft_sqrt.c ft_factorial.c ft_print_bits.c
 
 OBJS	=	$(SRCS:.c=.o)

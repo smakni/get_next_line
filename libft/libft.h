@@ -6,7 +6,7 @@
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 10:28:24 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/25 12:56:48 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/29 14:09:57 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstmove_last(t_list *alst, t_list *elem);
-t_list				*ft_lstadd_last(t_list *lst, void *content, size_t content_size);
+t_list				*ft_llast(t_list *lst, void *content, size_t content_size);
 
 #endif
