@@ -6,7 +6,7 @@
 /*   By: sabri <sabri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:16 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/29 22:21:14 by sabri            ###   ########.fr       */
+/*   Updated: 2018/05/30 01:53:30 by sabri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@
 #include <fcntl.h>
 
 #define BUFF_SIZE 1000
+
+int		get_next_line(const int fd, char **line);
 
 #endif
