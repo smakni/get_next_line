@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabri <sabri@student.42.fr>                +#+  +:+       +#+        */
+/*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/29 22:24:01 by sabri            ###   ########.fr       */
+/*   Updated: 2018/05/30 14:57:57 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		get_next_line(const int fd, char **line)
 	char			buffer[BUFF_SIZE + 1];
 	static char		*tmp;
 
+	if (!fd)
+		return (-1);
 	if (!tmp)
 		tmp = ft_memalloc(1);
 	while ((ret = read(fd, buffer, BUFF_SIZE)) > 0)
@@ -38,10 +40,9 @@ int		get_next_line(const int fd, char **line)
 	*line = ft_memalloc(len_line(tmp) + 1);
 	*line = ft_strncpy(*line, (const char *)tmp, len_line(tmp));
 	tmp = ft_strsub(tmp, (len_line(tmp) + 1), (ft_strlen(tmp) - len_line(tmp)));
-	if (ret < BUFF_SIZE && !ft_strlen(tmp))
+	if (ret < BUFF_SIZE && !ft_strlen(*line) && !ft_strlen(tmp))
 	{
-		free(tmp);
-		tmp = NULL;
+		ft_strdel(&tmp);
 		return (0);
 	}
 	return (1);
