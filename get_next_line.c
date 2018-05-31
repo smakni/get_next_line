@@ -6,7 +6,7 @@
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/31 16:26:51 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/31 17:25:40 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ int		get_next_line(const int fd, char **line)
 	*line = ft_strncpy(*line, (const char *)tmp, lenc(tmp));
 	tmp = ft_strsub_free(tmp, (lenc(tmp) + 1), (ft_strlen(tmp) - lenc(tmp)));
 	if (ret < BUFF_SIZE && !ft_strlen(*line) && !ft_strlen(tmp))
-	{
-		ft_strdel(&(*line));
-		ft_strdel(&tmp);
 		return (0);
-	}
 	return (1);
 }
