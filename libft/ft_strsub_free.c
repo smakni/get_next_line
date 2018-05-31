@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strsub_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/25 11:15:16 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/31 15:22:12 by smakni           ###   ########.fr       */
+/*   Created: 2018/05/31 16:18:53 by smakni            #+#    #+#             */
+/*   Updated: 2018/05/31 16:19:21 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
+char	*ft_strsub_free(char *s, unsigned int start, size_t len)
+{
+	size_t		i;
+	char		*str;
 
-# define BUFF_SIZE 3
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	if (!s)
+		return (NULL);
+	i = 0;
+	if ((str = malloc(sizeof(char) * (len + 1))) == NULL)
+		return (0);
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	ft_strdel(&s);
+	return (str);
+}

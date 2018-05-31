@@ -6,7 +6,7 @@
 /*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 10:28:24 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/29 14:09:57 by smakni           ###   ########.fr       */
+/*   Updated: 2018/05/31 16:21:23 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *str, const char *find, size_t len);
 char				*ft_strnew(size_t size);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char				*ft_strsub_free(char *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin_free(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 char				*ft_itoa(int n);
 char				*ft_strtoupper(char *str);
