@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabri <sabri@student.42.fr>                +#+  +:+       +#+        */
+/*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/05/31 22:12:42 by sabri            ###   ########.fr       */
+/*   Updated: 2018/06/01 12:26:01 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int		get_next_line(const int fd, char **line)
 		return (-1);
 	*line = ft_strncpy(*line, (const char *)tmp, lenc(tmp));
 	tmp = ft_strsub_free(tmp, (lenc(tmp) + 1), (ft_strlen(tmp) - lenc(tmp)));
-	if (ret < BUFF_SIZE && !ft_strlen(*line))
+	if (ret < BUFF_SIZE && !ft_strlen(*line) && !ft_strlen(tmp))
+	{
+		ft_strdel(&(*line));
 		return (0);
+	}
 	return (1);
 }
