@@ -6,7 +6,7 @@
 /*   By: sabri <sabri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/06/05 11:44:02 by sabri            ###   ########.fr       */
+/*   Updated: 2018/06/05 13:54:27 by sabri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ int		get_next_line(const int fd, char **line)
 			break ;
 	}
 	if (ret < BUFF_SIZE && !ft_strlen(tmp))
-	{
-		ft_strdel(&(*line));
 		return (0);
-	}
 	if (!(*line = ft_memalloc(lenc(tmp) + 1)))
 		return (-1);
 	*line = ft_strncpy(*line, (const char *)tmp, lenc(tmp));
