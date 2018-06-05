@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smakni <smakni@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sabri <sabri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:06 by smakni            #+#    #+#             */
-/*   Updated: 2018/06/01 17:36:53 by smakni           ###   ########.fr       */
+/*   Updated: 2018/06/05 11:44:02 by sabri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ size_t	lenc(char *str)
 
 	i = 0;
 	while (str[i] && str[i] != '\n')
-		i++;
-	if (str[i] == '\n' && str[i + 1] == '\n')
 		i++;
 	return (i);
 }
@@ -41,14 +39,14 @@ int		get_next_line(const int fd, char **line)
 		if (ft_memchr(buffer, '\n', BUFF_SIZE) != 0)
 			break ;
 	}
-	if (!(*line = ft_memalloc(lenc(tmp) + 1)))
-		return (-1);
-	*line = ft_strncpy(*line, (const char *)tmp, lenc(tmp));
-	tmp = ft_strsub_free(tmp, (lenc(tmp) + 1), (ft_strlen(tmp) - lenc(tmp)));
-	if (ret < BUFF_SIZE && !ft_strlen(*line) && !ft_strlen(tmp))
+	if (ret < BUFF_SIZE && !ft_strlen(tmp))
 	{
 		ft_strdel(&(*line));
 		return (0);
 	}
+	if (!(*line = ft_memalloc(lenc(tmp) + 1)))
+		return (-1);
+	*line = ft_strncpy(*line, (const char *)tmp, lenc(tmp));
+	tmp = ft_strsub_free(tmp, lenc(tmp) + 1, (ft_strlen(tmp) - lenc(tmp)));
 	return (1);
 }
