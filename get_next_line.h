@@ -6,7 +6,7 @@
 /*   By: sabri <sabri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 11:15:16 by smakni            #+#    #+#             */
-/*   Updated: 2018/06/02 11:47:26 by sabri            ###   ########.fr       */
+/*   Updated: 2018/06/08 12:31:35 by smakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define BUFF_SIZE 5
+# define BUFF_SIZE 500
 
 int		get_next_line(const int fd, char **line);
 
